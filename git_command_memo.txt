@@ -1,0 +1,48 @@
+git｛任意のコマンド名｝-h		//使い方
+
+git --version		//Gitバージョン表示
+git config --global user.name "｛ユーザー名｝"		//ユーザー名設定
+git config --global user.email ｛メールアドレス｝		//メールアドレスを設定
+git config --list		//上記設定値を確認
+git init		//Gitの「リポジトリ」を初期化
+git status		//ステータスを確認
+git add {file.name}		//ファイルの追跡開始
+git commit -m "first commit"		//リポジトリにコミット
+git log		//コミットの履歴
+git log -p		//コミットの変更点を表示?????
+git --no-pager log --oneline -n 10		//--no-pagerは（END）という単語に遭遇します
+										//-n 10は最後の10個のコミットだけを表示します
+										//--onelineはコミットメッセージを表示し、著者、日付情報を無視します
+git branch		//カレントブランチ確認
+git log --oneline --decorate		//ポインタが、どのコミットを指しているか
+
+git branch {新規作成するブランチ名}		//新しいブランチを作成
+git checkout {ブランチ名}		//ブランチの切り替え
+git merge {マージ元のブランチ名}		//別ブランチでの変更をカレントブランチに反映
+git branch -d {ブランチ名}		//ブランチ削除 (git branch -D)
+git checkout -b ｛新規作成するブランチ名｝		//ブランチの作成と切り替え
+
+git commit --amend		//直前のコミットのコミットメッセージを修正
+git commit --amend --no-edit		//直前のコミットにステージし忘れていたファイルを追加
+
+git checkout -- ｛ファイル名｝		//特定のファイルのステージされていない変更を取り消す
+
+git reset --soft HEAD~2		//HEADを2つ前のコミットに戻す（作業＋stageはそのまま）
+git reset <--mixed> ｛コミット｝		//HEADを2つ前のコミットに戻す（作業はそのまま、stageは戻す）
+git reset --hard ｛コミット｝		//HEADを2つ前のコミットに戻す（作業＋stageも戻す）
+
+--------
+--リモートリポジトリ名をサイトで作成（SSH設定）
+
+-ローカルからリモート名を作成、ローカルリポジトリをリモートリポジトリへ登録
+git remote -v		//リモートリポジトリが登録済みかを確認
+git remote add  <リモート名> {リポジトリURL=} git@github.com:<ユーザー名>/<リポジトリ名>.git		//リモートリポジトリを登録
+		sample:		git remote add origin git@github.com:takuyaemma/hello-github.git
+
+git push <リモート名> <ブランチ名>		//リモートリポジトリに反映する
+git clone <リポジトリURL>		//リモートリポジトリを複製してローカルに取り込む
+git push <リモート名> <ブランチ名>		//リモートリポジトリを変更・更新する
+git pull <リモート名> <ブランチ名>		//リモートリポジトリの更新をローカルに取り込む
+
+
+
